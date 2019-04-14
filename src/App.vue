@@ -14,9 +14,20 @@ import Logo from "./components/Logo";
 import Weather from "./components/Weather";
 import PageHeader from "./components/PageHeader";
 import "./css/custom.css";
+import axios from "axios";
 
 export default {
   name: "app",
+  data: () => {
+    return {
+      fact: ""
+    };
+  },
+  created: function() {
+    this.displayFunFact().then(fact => {
+      this.fact = fact;
+    });
+  },
   computed: {
     header() {
       switch (this.$route.fullPath) {
@@ -35,7 +46,8 @@ export default {
     subheader() {
       switch (this.$route.fullPath) {
         case "/":
-          return "Jeśli ośmiornica głoduje, potrafi zjeść własną mackę.";
+          return this.fact;
+          break;
         case "/error":
           return "Ponowna próba nastąpi za 3s";
         case "/success":
@@ -45,6 +57,21 @@ export default {
         default:
           return ":c :c :c :c";
       }
+    }
+  },
+  methods: {
+    displayFunFact(callback) {
+      let url = `https://my.api.mockaroo.com/fun_fact.json?key=${
+        process.env.VUE_APP_MOCKAROO_API_KEY
+      }`;
+      return axios
+        .get(url)
+        .then(data => {
+          return data.data.fact;
+        })
+        .catch(error => {
+          console.log(error);
+        });
     }
   },
   components: {
