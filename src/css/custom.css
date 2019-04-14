@@ -81,9 +81,8 @@ body {
 }
 #face-icon {
   padding-top: 45vh;
-  font-size: 320px;
   color: white;
-  line-height: normal;
+  font-size: 575px;
 }
 #temperature {
   /* Temp */
@@ -168,7 +167,7 @@ h1 {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-position: 70% 25vh;
+  background-position: 70% 27vh;
 }
 #time {
   margin-top: 50vh;
@@ -224,11 +223,11 @@ h1 {
 }
 @media only screen and (max-width: 57.5em) {
   #background_2 {
-    background-position: 70% 28vh;
+    background-position: 70% 31vh;
   }
 }
 @media only screen and (max-width: 61.875em) {
-  #regards {
+  #curio {
     font-size: 2rem;
   }
   #description {
@@ -237,6 +236,13 @@ h1 {
 }
 @media only screen and (max-width: 39.375em) {
   #background_2 {
-    background-position: 70% 30vh;
+    background-position: 70% 34vh;
+  }
+  #face-icon{
+    padding-right:23vw;
   }
 }
+
+
+
+

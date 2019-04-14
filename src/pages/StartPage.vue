@@ -1,5 +1,5 @@
 <template>
-  <div class="ui container center aligned">
+  <div>
     <Clock/>
     <h1 class="ui header" id="time"></h1>
     <router-link tag="button" class="ui massive primary button" id="btn" to="/action" exact>START</router-link>

@@ -3,8 +3,15 @@
     <Logo/>
     <PageHeader :header="this.header" :subheader="this.subheader"/>
     <Weather/>
-    <div id="background">
+    <div v-if="$route.name==='FrontPage'">
+      <div id="background">
+        <router-view></router-view>
+      </div>
+    </div>
+    <div v-if="$route.name!=='FrontPage'">
+      <div id="background_2">
       <router-view></router-view>
+    </div>
     </div>
   </div>
 </template>
