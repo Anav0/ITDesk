@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div id="app" class="ui container center aligned">
     <Logo/>
     <PageHeader :header="this.header" :subheader="this.subheader"/>
@@ -21,6 +21,7 @@ import Logo from "./components/Logo";
 import Weather from "./components/Weather";
 import PageHeader from "./components/PageHeader";
 import "./css/custom.css";
+import "./css/semantic.css";
 import axios from "axios";
 
 export default {
