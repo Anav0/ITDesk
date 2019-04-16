@@ -1,5 +1,5 @@
 <template>
-  <h1 class="ui header" id="time">{{this.time}}</h1>
+  <h1 class="ui header" id="clock">{{this.time}}</h1>
 </template>
 
 <script>
@@ -36,5 +36,5 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style >
 </style>

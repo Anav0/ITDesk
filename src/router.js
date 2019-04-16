@@ -17,10 +17,13 @@ export default new Router({
     },
     {
       path: "/action",
-      component: ActionPage
+      name: "ActionPage",
+      component: ActionPage,
+      props: true
     },
     {
       path: "/success",
+      name: "SuccessPage",
       component: SuccessfulActionPage
     },
     {

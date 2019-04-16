@@ -3,15 +3,8 @@
     <Logo/>
     <PageHeader :header="this.header" :subheader="this.subheader"/>
     <Weather/>
-    <div v-if="$route.name==='FrontPage'">
-      <div id="background">
-        <router-view></router-view>
-      </div>
-    </div>
-    <div v-if="$route.name!=='FrontPage'">
-      <div id="background_2">
+    <div class="background">
       <router-view></router-view>
-    </div>
     </div>
   </div>
 </template>
@@ -23,12 +16,15 @@ import PageHeader from "./components/PageHeader";
 import "./css/custom.css";
 import "./css/semantic.css";
 import axios from "axios";
+import settings from "./settings.json";
+import { setInterval } from "timers";
 
 export default {
   name: "app",
   data: () => {
     return {
-      fact: ""
+      fact: "",
+      timeleft: Math.round(settings.return_timeout / 1000)
     };
   },
   created: function() {
@@ -38,7 +34,7 @@ export default {
   },
   computed: {
     header() {
-      switch (this.$route.fullPath) {
+      switch (this.$route.path) {
         case "/":
           return "Czy wiesz, że?";
         case "/error":
@@ -46,7 +42,7 @@ export default {
         case "/success":
           return "Miłego dnia w pracy :)";
         case "/action":
-          return "Cześć Krzysiu!";
+          return `Cześć ${this.$route.params.name}!`;
         default:
           return "Twoja ścieżka jest inwalidą";
       }
@@ -57,9 +53,9 @@ export default {
           return this.fact;
           break;
         case "/error":
-          return "Ponowna próba nastąpi za 3s";
+          return `Ponowna próba nastąpi za ${this.timeleft}s`;
         case "/success":
-          return "Powrót do ekranu startowego za 3s";
+          return `Powrót do ekranu startowego za ${this.timeleft}s`;
         case "/action":
           return "Co robisz?";
         default:

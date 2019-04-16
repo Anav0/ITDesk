@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <fa-icon id="weather-icon" :icon="icon" size="2x"></fa-icon>
-    <div id="temperature">{{this.tmp+this.symbol}}</div>
+  <div class="weather-container">
+    <fa-icon class="weather-icon" :icon="icon" size="2x"></fa-icon>
+    <div class="weather-temperature">{{this.tmp+this.symbol}}</div>
   </div>
 </template>
 
@@ -31,7 +31,7 @@ export default {
         .then(data => {
           this.tmp = Math.round(data.data.main.temp);
           switch (data.data.weather[0].main.toLowerCase()) {
-            case "clear sky":
+            case "clear":
               this.icon = "sun";
               break;
             case "rain":
@@ -86,5 +86,34 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style >
+.weather-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  right: 40px;
+  top: 33px;
+}
+.weather-icon {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 3rem;
+  line-height: normal;
+  text-align: center;
+
+  color: #f4622f;
+}
+.weather-temperature {
+  /* Temp */
+
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: normal;
+  text-align: center;
+  margin-top: 0.5rem;
+  color: #878887;
+}
 </style>
