@@ -16,7 +16,7 @@ export default {
 
 <style >
 .errorPage-icon {
-  padding-top: 45vh;
+  padding-top: 50vh;
   color: white;
   font-size: 50rem;
 }
